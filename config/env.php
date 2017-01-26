@@ -19,11 +19,4 @@ $Citys = array("Guatemala City", "Mixco", "Villa Nueva", "Quetzaltenango","San M
             "El Palmar", "Nuevo San Carlos", "Santa Catalina la Tinta", "Comitancillo", "Santa Cruz Barillas", "Patulul", "La Esperanza", "Almolonga", "Salcajá",
             "Guastatoya", "Nueva Concepción", "Livingston", "Ayutla", "San Francisco Zapotitlán", "Melchor de Mencos", "Panajachel", "San Pablo", "Chajul"
           );
-
-$Rooms = array("1","2","3","4","5","6","7","8","9","10");
-
-$Adults = array("1","2","3","4","5","6","7","8","9","10");
-
-$Children = array("1","2","3","4","5","6","7","8","9","10");
-
- ?>
+?>

@@ -9,6 +9,7 @@ include_once('Config/env.php');
     <title>Hotel Information from 6 Sites</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
     <link rel="stylesheet" type="text/css" href="template/css/common.css">
+    <link rel="stylesheet" type="text/css" href="template/css/datapicker.css">
 </head>
 <body>
     <br><br><h2>Hotel Information from Expedia.com, Booking.com, Bookhotelbeds.com, Hotels.com, Bestday.com, despegar.com </h2><br>
@@ -20,15 +21,57 @@ include_once('Config/env.php');
                 <div class="wpcf7" id="wpcf7-f560-p590-o1">
                   <form action="/landing-page-template-do-not-delete/#wpcf7-f560-p590-o1" method="post" class="wpcf7-form" novalidate="novalidate" _lpchecked="1">
                     <div class="group">
-                        <span class="wpcf7-form-control-wrap text-680"><input type="text" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Destination, Property name or address (City Name e.g : Guatemala City, Mixco)"></span><br>
+                        <span class="wpcf7-form-control-wrap text-680">
+                            <input type="text" name="text-680" value=""  list="citylist" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Destination, Property name or address (City Name e.g : Guatemala City, Mixco)">
+                            <datalist id="citylist">
+                              <?php
+                                  $count_city = count($Citys);
+                                    for ($i = 0 ; $i < $count_city ; $i++ ) {
+                                          echo "<option>" . $Citys[$i] ;
+                                    }
+                              ?>
+                            </datalist>
+                        </span><br>
                     <div style="width: 48%; float: left;">
-                      <span class="wpcf7-form-control-wrap text-680"><input type="text" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Check-In"></span><br>
-                      <span class="wpcf7-form-control-wrap text-680"><input type="text" name="text-680" value="" size="30" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Rooms"></span><br>
-                      <span class="wpcf7-form-control-wrap text-680"><input type="text" name="text-680" value="" size="30" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Adults"></span><br>
-                      <span class="wpcf7-form-control-wrap text-680"><input type="text" name="text-680" value="" size="30" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Children"></span><br>
+                      <span class="wpcf7-form-control-wrap text-680">
+                          <input type="text"  id="datapicker1" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Check-In">
+
+                      </span><br>
+                      <span class="wpcf7-form-control-wrap text-680">
+                        <input type="text" name="text-680" list="RoomList" value="" size="30" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Rooms">
+                        <datalist id="RoomList">
+                          <?php
+                                for ($i = 1 ; $i < 11 ; $i++ ) {
+                                      echo "<option>" . $i ;
+                                }
+                          ?>
+                        </datalist>
+                      </span><br>
+                      <span class="wpcf7-form-control-wrap text-680">
+                        <input type="text" name="text-680" value="" list="adultList" size="30" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Adults">
+                        <datalist id="adultList">
+                          <?php
+                                for ($i = 1 ; $i < 11 ; $i++ ) {
+                                      echo "<option>" . $i ;
+                                }
+                          ?>
+                        </datalist>
+                      </span><br>
+                      <span class="wpcf7-form-control-wrap text-680">
+                        <input type="text" name="text-680" value="" list="childList" size="30" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Children">
+                        <datalist id="childList">
+                          <?php
+                                for ($i = 0 ; $i < 11 ; $i++ ) {
+                                      echo "<option>" . $i ;
+                                }
+                          ?>
+                      </span><br>
+                      </datalist>
                     </div>
                     <div style="width: 48%; float: right;">
-                      <span class="wpcf7-form-control-wrap text-680"><input type="text" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Check-Out"></span><br>
+                      <span class="wpcf7-form-control-wrap text-680">
+                        <input type="text" id="datapicker2" name="text-680" value="" size="45" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Check-Out">
+                      </span><br>
                       <h4>Where do you want to Search?</h4>
                       <p>
                         <span class="wpcf7-form-control-wrap radio-98"><span class="wpcf7-form-control wpcf7-radio"><span class="wpcf7-list-item"><label><input type="radio" name="radio-98" value="Phone">&nbsp;<span class="wpcf7-list-item-label">Expedia.com</span></label></span>
@@ -51,6 +94,24 @@ include_once('Config/env.php');
 </body>
 </html>
 
+<script src="template/js/jQuery.js"></script>
+<script src="template/js/bootstrap-datapicker.js"></script>
+
+
+      <script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+
+                $('#datapicker1').datepicker({
+                    format: "dd/mm/yyyy"
+                });
+
+                $('#datapicker2').datepicker({
+                    format: "dd/mm/yyyy"
+                });
+
+            });
+        </script>
 <!--
 
 <h4>Days of the week you are available for appointment:</h4>
