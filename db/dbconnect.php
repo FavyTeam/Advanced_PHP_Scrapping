@@ -1,13 +1,23 @@
 <?php
-include_once('Config/dbconfig.php');
+include_once("config/env.php");
 
-$connectionInfo = array("Database"=>$dbName, "UID"=>$userName, "PWD"=>$userPassword, "MultipleActiveResultSets"=>true);
+  function connect(){
 
-  sqlsrv_configure('WarningsReturnAsErrors', 0);
-  $conn = sqlsrv_connect( $serverName, $connectionInfo);
-  if($conn === false)
-  {
-    FatalError("Failed to connect...");
+    $serverName = "tcp:indisersa.database.windows.net,1433";
+    $userName = 'otto';
+    $userPassword = 'Knoke@1958';
+    $dbName = "hotel_info";
+
+    $connectionInfo = array("Database"=>$dbName, "UID"=>$userName, "PWD"=>$userPassword ,"CharacterSet" =>"UTF-8","ConnectionPooling" => "1", "MultipleActiveResultSets"=>"0");
+
+    //sqlsrv_configure('WarningsReturnAsErrors', 0);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if($conn === false)
+    {
+      FatalError("Failed to connect...");
+    }
+
+    return $conn;
   }
 
- ?>
+?>

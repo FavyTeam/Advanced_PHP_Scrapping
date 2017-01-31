@@ -1,6 +1,9 @@
 <?php
 error_reporting(E_ALL);
+
 include_once('Config/env.php');
+// include_once($DB_DIR . 'addcity.php');
+
 ?>
 
 <!Doctype html>
@@ -92,7 +95,7 @@ include_once('Config/env.php');
           <div class="col-md-8">
               <h3>Search result from query</h3>
               <a href="#" class="action-button shadow animate green">Send data to Azure Database</a><br><br>
-              <p style="color: #fff;">
+              <p id="hello" style="color: #fff;">
                   <?php
                         if (isset($_POST['cityName'])){  // call each hotels API here
                             switch($_POST['urls']){
@@ -104,7 +107,6 @@ include_once('Config/env.php');
                               case 'Booking.com':
                                     {
                                         include_once('lib/BookingAPI.php');
-                                        echo "parsing start....";
                                         parseStart("abb", "1/2/2017", "1/3/2017", "2", "2", "0");
                                     }
                                 break;
@@ -115,6 +117,7 @@ include_once('Config/env.php');
                               case 'Bestday.com':
                                     // Use another Library
                                     include_once('lib/BestdayAPI.php');
+                                    BestdayAPI("abb", "1/2/2017", "1/3/2017", "2", "2", "0");
                                 break;
                               case 'Bookhotelbeds.com':
                                     include_once('lib/BookhotelbedsAPI.php');
@@ -137,12 +140,21 @@ include_once('Config/env.php');
 <script src="template/js/bootstrap-datapicker.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-    $('#datapicker1').datepicker({
-        format: "dd/mm/yyyy"
-    });
-    $('#datapicker2').datepicker({
-        format: "dd/mm/yyyy"
-    });
+        $('#datapicker1').datepicker({
+            format: "dd/mm/yyyy"
+        });
+        $('#datapicker2').datepicker({
+            format: "dd/mm/yyyy"
+        });
+
+    /*    $.get("https://www.bestday.com/Audubon-New-Jersey/Hotels/?GAcat=SearchHotels&origen_base=&origen_base_tipo=&origen_base_desc=&origen_base_prod=&destino_base=10457&destino_base_tipo=D&destino_base_desc=Audubon%2C+PA%2C+United+States&destino_base_prod=ht&carpeta_base=Audubon-New-Jersey&background_size_ht=3132372e3933383334323936373234343725203538307078&dia_desde=6&mes_desde=2&anio_desde=2017&dia_hasta=10&mes_hasta=2&anio_hasta=2017&asoc=&cadena=&ajhoteles=Audubon%2C+PA%2C+United+States&Destino=10457&Ciudad=&ajHotel=&ClavDestino=&ClavCiudad=&check-inH=Feb%2F06%2F2017&check-outH=Feb%2F10%2F2017&num_cuartos=1&num_adultos=2&num_ninos=0&promoCouponGTM=", function(html) {
+            console.log("Data loading...");
+          document.write(html);
+          setTimeout(function(){
+              window.stop();
+            }, 3000);
+        });
+      */
   });
 </script>
 <!--

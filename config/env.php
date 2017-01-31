@@ -5,6 +5,10 @@
 **  Created by Dovydas B.
 **  Date : 1/26/2017
 ***/
+$SOURCE_DIR = $_SERVER["DOCUMENT_ROOT"] . "/6Scrap/";
+$CONFIG_DIR = $SOURCE_DIR . "/config/";
+$DB_DIR = $SOURCE_DIR . "/db/";
+$LIB_DIR = $SOURCE_DIR . "/lib/";
 
 $Citys = array("Guatemala City", "Mixco", "Villa Nueva", "Quetzaltenango","San Miguel Petapa", "Escuintla", "San Juan Sacatepéquez" ,
             "Villa Canales", "Chinautla", "Chimaltenango", "Amatitlán", "Huehuetenango", "Santa Lucía Cotzumalguapa", "Puerto Barrios" ,
@@ -19,4 +23,5 @@ $Citys = array("Guatemala City", "Mixco", "Villa Nueva", "Quetzaltenango","San M
             "El Palmar", "Nuevo San Carlos", "Santa Catalina la Tinta", "Comitancillo", "Santa Cruz Barillas", "Patulul", "La Esperanza", "Almolonga", "Salcajá",
             "Guastatoya", "Nueva Concepción", "Livingston", "Ayutla", "San Francisco Zapotitlán", "Melchor de Mencos", "Panajachel", "San Pablo", "Chajul"
           );
+
 ?>
