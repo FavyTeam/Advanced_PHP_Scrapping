@@ -184,3 +184,175 @@ foreach($html->find('div.article') as $article) {
     $articles[] = $item;
 }
 ?>
+
+
+
+<?php
+
+$userGuid = "7f1f9c8f-d842-4b10-8fda-837caff49df5";
+$apiKey = "7f1f9c8fd8424b108fda837caff49df56d5d9dba93dc88105cc0225f9d78270327602e5df561c1cb46591496821e89f450070c9efc269bda121de2c2b616382e8fcbdd2299ffa82a7ab97586802806d8";
+
+// Issues a query request to import.io
+function query($connectorGuid, $input, $userGuid, $apiKey) {
+
+    $url = "http://query.import.io/store/connector/" . $connectorGuid . "/_query?_user=" . urlencode($userGuid) . "&_apikey=" . urlencode($apiKey);
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        "Content-Type: application/json",
+        "import-io-client: import.io PHP client",
+        "import-io-client-version: 2.0.0"
+    ));
+    curl_setopt($ch, CURLOPT_POSTFIELDS,  json_encode(array("input" => $input)));
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    $result = curl_exec($ch);
+    curl_close($ch);
+
+    return json_decode($result);
+}
+
+// Query for tile owltest
+echo "Test";
+$result = query("71e57dbc-9996-4fa3-8715-c564a347d002", array(
+  "webpage/url" => "http://owlkingdom.com/",
+), $userGuid, $apiKey, false);
+var_dump($result);
+
+ ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Visuallyhidden value 1 : ,
+Drrexpiremsgh4 value : ,
+Visuallyhidden value 2 : ,
+Hotelinfo contents : ,
+Visuallyhidden value 3 : ,
+Lastbookedsection value : ,
+Visuallyhidden value 4 : ,
+Hotelugclink value : ,
+Visuallyhidden value 5 : ,
+Overlink price : ,
+Visuallyhidden description : ,
+Priceisnow price : ,
+Priceis value : ,
+Badgesuccess value : ,
+Hidden value : ,
+Drrexpiremsgblock value : ,
+Image : ,
+Earncomponent value : ,
+Flex link : ,
+Hiddenspid value : ,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Visuallyhidden value 1 :
+Hotelinfo contents :
+Hotelugclink value :
+Overlink price :
+Priceisnow price :
+Earncomponent value :
+
+
+
+Hotelinfo contents :
+array(12) { [0]=> array(1) { ["text"]=> string(13) "Today 35% off" }
+            [1]=> array(1) { ["text"]=> string(18) "Good Hotel Antigua" }
+            [2]=> array(1) { ["text"]=> string(7) "• ESR" }
+            [3]=> array(1) { ["text"]=> string(14) "4.0 out of 5.0" }
+            [4]=> array(1) { ["text"]=> string(17) "Antigua Guatemala" }
+            [5]=> array(1) { ["text"]=> string(50) "Map Toggle map for Good Hotel Antigua and vicinity" }
+            [6]=> array(1) { ["text"]=> string(14) "1-866-264-5744" }
+            [7]=> array(1) { ["text"]=> string(16) "• Expedia Rate" }
+            [8]=> array(1) { ["text"]=> string(29) "Booked in the last 55 minutes" }
+            [9]=> array(1) { ["text"]=> string(30) "Based on 7 reviews (7 reviews)" }
+            [10]=> array(1) { ["text"]=> string(18) "Price is avg/night" }
+            [11]=> array(1) { ["text"]=> string(29) "Hurry! Offer ends in 13:06:37" } } ,

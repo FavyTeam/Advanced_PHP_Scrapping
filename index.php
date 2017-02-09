@@ -75,7 +75,7 @@ include_once('Config/env.php');
                       </span><br>
                       <h4>Where do you want to Search?</h4>
                       <p>
-                        <span class="wpcf7-form-control-wrap radio-98"><span class="wpcf7-form-control wpcf7-radio"><span class="wpcf7-list-item"><label><input type="radio" name="radio-98" value="Phone">&nbsp;<span class="wpcf7-list-item-label">Expedia.com</span></label></span>
+                        <span class="wpcf7-form-control-wrap radio-98"><span class="wpcf7-form-control wpcf7-radio"><span class="wpcf7-list-item"><label><input type="radio" name="urls" value="Expedia.com">&nbsp;<span class="wpcf7-list-item-label">Expedia.com</span></label></span>
                         <span class="wpcf7-list-item"><label><input type="radio" name="urls" value="Booking.com">&nbsp;<span class="wpcf7-list-item-label">Booking.com</span></label></span></span></span>
                         <span class="wpcf7-list-item"><label><input type="radio" name="urls" value="Hotels.com">&nbsp;<span class="wpcf7-list-item-label">Hotels.com</span></label></span></span></span>
                         <span class="wpcf7-list-item"><label><input type="radio" name="urls" value="Bestday.com">&nbsp;<span class="wpcf7-list-item-label">Bestday.com</span></label></span></span></span>
@@ -98,11 +98,14 @@ include_once('Config/env.php');
               <p id="hello" style="color: #fff;">
                   <?php
                         if (isset($_POST['cityName'])){  // call each hotels API here
+                            echo $_POST['urls'];
                             switch($_POST['urls']){
                               case 'Expedia.com':
-                                    include_once('lib/ExpediaAPI.php');
-                                    //Use another API from lib
-
+                                    {
+                                        include_once('lib/ExpediaAPI.php');
+                                        output_json();
+                                    }
+                                    
                                 break;
                               case 'Booking.com':
                                     {
@@ -111,21 +114,31 @@ include_once('Config/env.php');
                                     }
                                 break;
                               case 'Hotels.com':
-                                    include_once('lib/HotelsAPI.php');
-                                    HotelsAPI("abb", "1/2/2017", "1/3/2017", "2", "2", "0");
+                                    {
+                                        include_once('lib/HotelsAPI.php');
+                                        HotelsAPI("abb", "1/2/2017", "1/3/2017", "2", "2", "0");
+                                    }
+                                    
                                 break;
                               case 'Bestday.com':
-                                    // Use another Library
-                                    include_once('lib/BestdayAPI.php');
-                                    BestdayAPI("abb", "1/2/2017", "1/3/2017", "2", "2", "0");
+                                    {
+                                        include_once('lib/BestdayAPI.php');
+                                        BestdayAPI("abb", "1/2/2017", "1/3/2017", "2", "2", "0");
+                                    }
+                                    
                                 break;
                               case 'Bookhotelbeds.com':
-                                    include_once('lib/BookhotelbedsAPI.php');
-                                    BookhotelbedsAPI("abb", "1/2/2017", "1/3/2017", "2", "2", "0");
+                                    {
+                                        include_once('lib/BookhotelbedsAPI.php');
+                                        output_json();
+                                    }
+                                    
                                 break;
                               case 'Despegar.com':
-
-                                    include_once('lib/DespegarAPI.php');
+                                    {
+                                        include_once('lib/DespegarAPI.php');
+                                        output_json();
+                                    } 
                                   break;
                             }
                         }
@@ -146,15 +159,6 @@ include_once('Config/env.php');
         $('#datapicker2').datepicker({
             format: "dd/mm/yyyy"
         });
-
-    /*    $.get("https://www.bestday.com/Audubon-New-Jersey/Hotels/?GAcat=SearchHotels&origen_base=&origen_base_tipo=&origen_base_desc=&origen_base_prod=&destino_base=10457&destino_base_tipo=D&destino_base_desc=Audubon%2C+PA%2C+United+States&destino_base_prod=ht&carpeta_base=Audubon-New-Jersey&background_size_ht=3132372e3933383334323936373234343725203538307078&dia_desde=6&mes_desde=2&anio_desde=2017&dia_hasta=10&mes_hasta=2&anio_hasta=2017&asoc=&cadena=&ajhoteles=Audubon%2C+PA%2C+United+States&Destino=10457&Ciudad=&ajHotel=&ClavDestino=&ClavCiudad=&check-inH=Feb%2F06%2F2017&check-outH=Feb%2F10%2F2017&num_cuartos=1&num_adultos=2&num_ninos=0&promoCouponGTM=", function(html) {
-            console.log("Data loading...");
-          document.write(html);
-          setTimeout(function(){
-              window.stop();
-            }, 3000);
-        });
-      */
   });
 </script>
 <!--
