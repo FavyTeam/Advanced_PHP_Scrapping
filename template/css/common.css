@@ -30,7 +30,7 @@ p.author span { color: #217969; font-family: 'Helvetica Neue', sans-serif; font-
 
 .landing-page {
   width: 90%;
-  margin: 10px auto 0;
+  margin: 4em auto 0; 
 }
 
 .landing-page *,
@@ -39,21 +39,6 @@ p.author span { color: #217969; font-family: 'Helvetica Neue', sans-serif; font-
 	-webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-}
-
-.landing-page .module {
-	border: 1px solid rgb(219, 219, 219);
-	border-radius: 4px;
-	float: left;
-	padding: 2em;
-	width: 48%;
-}
-
-.landing-page .module > *:last-child,
-.landing-page .module > *:last-child > *:last-child,
-.landing-page .module > *:last-child > *:last-child > *:last-child {
-	margin: 0;
-	padding: 0;
 }
 
 .landing-page .note {
@@ -139,8 +124,12 @@ p.author span { color: #217969; font-family: 'Helvetica Neue', sans-serif; font-
 }
 
 span.wpcf7-list-item {
+	/*
 	display: block;
 	margin-left: -.02em;
+	*/
+	margin-left: 2em;
+	font-size: 0.9em;
 }
 
 
@@ -175,4 +164,24 @@ span.wpcf7-list-item {
 	transform: translate(0px,5px);
   -webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
+}
+
+#citylist, #RoomList, #adultList, #childList {
+  outline: 0;
+  box-shadow: 0 0 6px rgb(176, 226, 188);
+  	-webkit-transition: all .2s ease-in-out;
+	   -moz-transition: all .2s ease-in-out;
+	        transition: all .2s ease-in-out;
+	        	border: 1px solid rgb(153, 202, 129);
+	border-radius: .2em;
+	font-family: 'PT Sans', Arial, sans-serif;
+	font-size: 1.1em;
+	padding: .4em 1em;
+	margin: 0 0 .8em;
+	width: 100%;
+  box-shadow: 0 0 8px rgba(0,0,0,.08) inset;
+}
+
+#subMenu{
+	  margin-top: 4em;
 }

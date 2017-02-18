@@ -15,6 +15,8 @@ include_once("config/env.php");
     if($conn === false)
     {
       FatalError("Failed to connect...");
+    }else{
+      //echo "connection Success!!!"; 
     }
 
     return $conn;

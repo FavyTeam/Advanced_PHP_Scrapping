@@ -10,6 +10,10 @@
  error_reporting(E_ALL);
  include_once('simple_html_dom.php');
 
+function GenerateHotelBedsUrl($cityName, $check_in, $check_out, $room, $adult, $child){
+    
+}
+
  function query($queryID, $api, $url ) {
 
      $url = "https://extraction.import.io/query/extractor/" . urlencode($queryID) . "?_apikey=" . urlencode($api) . "&url=" . urlencode($url);

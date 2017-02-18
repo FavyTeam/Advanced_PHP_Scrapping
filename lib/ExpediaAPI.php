@@ -9,7 +9,9 @@
 
 include_once('simple_html_dom.php');
 
-//Implement - query function
+function GenerateExpediaUrl($cityName, $check_in, $check_out, $room, $adult, $child){
+    
+}
 
  function query($queryID, $api, $url ) {
 
@@ -191,7 +193,7 @@ include_once('simple_html_dom.php');
 
             echo " } <br><br>";
 
-
+/*
             $insertSql = "INSERT INTO tbl_expedia (id, city, check_in, check_out, hotelName, hotelReview, hotelRating, hotelGuestRating, hotelTelephone, ActualPrice, DiscountPrice, currency) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
             if ($ExpediaItem["hotelActualPrice"][$i] == "none"){
@@ -203,11 +205,11 @@ include_once('simple_html_dom.php');
             }
 
             sqlsrv_query($conn, $insertSql,$params);
-
+*/
 
         }
 
-    //    sqlsrv_close($conn);
+        sqlsrv_close($conn);
     }
 
  }
