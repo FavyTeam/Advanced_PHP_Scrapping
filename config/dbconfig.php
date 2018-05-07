@@ -6,9 +6,9 @@
 **  Date : 1/26/2017
 ***/
 
-$serverName = "tcp:indisersa.database.windows.net,1433";
-$userName = 'otto';
-$userPassword = 'Knoke@1958';
+$serverName = "tcp:xxxxxxxxxx.database.windows.net,1433";
+$userName = "Username@xxxxxxxxxx";
+$userPassword = "password";
 
 //  $dbName = "TestDB";
 //  $table = "tablePHP";
